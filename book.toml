@@ -1,0 +1,7 @@
+[book]
+title = "The Compose Language"
+authors = ["Rob Gage"]
+language = "en"
+
+[build]
+build-dir = "docs"
