@@ -12,8 +12,13 @@
   * [`rotate`](./functions/rotate.md)
   * [`swap`](./functions/swap.md)
   
-  * [`+`](./functions/sum.md)
-  * [`-`](./functions/difference.md)
-  * [`*`](./functions/product.md)
-  * [`/`](./functions/quotient.md)
-  * [`%`](./functions/remainder.md)
+  * [`+` (sum)](./functions/sum.md)
+  * [`-` (difference)](./functions/difference.md)
+  * [`*` (product)](./functions/product.md)
+  * [`/` (quotient)](./functions/quotient.md)
+  * [`%` (remainder)](./functions/remainder.md)
+  
+  * [`!` (Boolean NOT)](./functions/not.md)
+  * [`|` (Boolean OR)](./functions/or.md)
+  * [`&` (Boolean AND)](./functions/and.md)
+  * [`^` (Boolean XOR)](./functions/exclusive-or.md)
