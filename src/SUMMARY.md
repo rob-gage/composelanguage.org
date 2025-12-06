@@ -3,6 +3,13 @@
 [Introduction](./introduction.md)
 
 * [Installation](./installation.md)
+* [Data](./data/README.md)
+
+	* [Integers](./data/integers.md)
+	* [Booleans](./data/booleans.md)
+	* [Lambdas](./data/lambdas.md)
+	* [Lists](./data/lists.md)
+
 * [Core Functions](./functions/README.md)
 
   * [`copy`](./functions/copy.md)
