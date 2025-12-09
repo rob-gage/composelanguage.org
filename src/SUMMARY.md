@@ -29,3 +29,7 @@
   * [`|` (Boolean OR)](./functions/or.md)
   * [`&` (Boolean AND)](./functions/and.md)
   * [`^` (Boolean XOR)](./functions/exclusive-or.md)
+  
+  * [`=` (equals)](./functions/equality.md)
+  * [`>` (greater than)](./functions/greater-than.md)
+  * [`<` (less than)](./functions/less-than.md)
