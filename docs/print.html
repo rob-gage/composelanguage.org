@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-8631d6f1.js";
+            window.path_to_searchindex_js = "searchindex-cd1aac61.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-5133e30e.js"></script>
+        <script src="toc-ab760b22.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -225,12 +225,6 @@
 <p><code>1 2 copy</code> → <code>1 2 2</code></p>
 <p><code>[ 1 2 3 4 5 ] copy</code> → <code>[ 1 2 3 4 5 ] [ 1 2 3 4 5 ]</code></p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="drop"><a class="header" href="#drop"><code>drop</code></a></h1>
-<p>Removes an item from the top of the stack.</p>
-<p><code>true false drop</code> → <code>true</code></p>
-<p><code>1 2 3 4 5 drop drop</code> → <code>1 2 3</code></p>
-<p><code>[ 1 2 3 4 5 ] [ 6 7 8 9 10 ] drop</code> → <code>[ 1 2 3 4 5 ]</code></p>
-<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="hop"><a class="header" href="#hop"><code>hop</code></a></h1>
 <p>Copies the item on top of the stack.</p>
 <p><code>false true hop</code> → <code>false true false</code></p>
@@ -243,15 +237,21 @@
 <p><code>false true 3 pick</code> → <code>false true false</code></p>
 <p><code>1 2 3 4 5 -1 pick</code> → <code>1 2 3 4 5 1</code></p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="rotate"><a class="header" href="#rotate"><code>rotate</code></a></h1>
-<p>Moves the item on top of the stack under the two items below it.</p>
-<p><code>1 2 3 rotate</code> → <code>3 1 2</code></p>
-<p><code>10 20 30 rotate rotate rotate</code> → <code>10 20 30</code></p>
+<h1 id="drop"><a class="header" href="#drop"><code>drop</code></a></h1>
+<p>Removes an item from the top of the stack.</p>
+<p><code>true false drop</code> → <code>true</code></p>
+<p><code>1 2 3 4 5 drop drop</code> → <code>1 2 3</code></p>
+<p><code>[ 1 2 3 4 5 ] [ 6 7 8 9 10 ] drop</code> → <code>[ 1 2 3 4 5 ]</code></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="swap"><a class="header" href="#swap"><code>swap</code></a></h1>
 <p>Swaps the two items on top of the stack.</p>
 <p><code>10 20 swap</code> → <code>20 10</code></p>
 <p><code>false true swap swap</code> → <code>false true</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="rotate"><a class="header" href="#rotate"><code>rotate</code></a></h1>
+<p>Moves the item on top of the stack under the two items below it.</p>
+<p><code>1 2 3 rotate</code> → <code>3 1 2</code></p>
+<p><code>10 20 30 rotate rotate rotate</code> → <code>10 20 30</code></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id=""><a class="header" href="#"><code>+</code></a></h1>
 <p>Computes the sum of two integers on top of the stack.</p>
@@ -300,6 +300,52 @@
 <p><code>false false ^</code>  → <code>false</code></p>
 <p><code>false true ^</code> → <code>true</code></p>
 <p><code>true true ^</code> → <code>false</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-8"><a class="header" href="#-8"><code>=</code></a></h1>
+<p>Consumes the top two items on the stack and produces <code>true</code> if they are equal, and <code>false</code> if they are not.</p>
+<p><code>false false =</code>  → <code>true</code></p>
+<p><code>5 10 =</code> → <code>false</code></p>
+<p><code>0 0 =</code> → <code>true</code></p>
+<p><code>100 true =</code> → <code>false</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-9"><a class="header" href="#-9"><code>&gt;</code></a></h1>
+<p>Consumes two integers from the top of the stack and produces <code>true</code> if the integer second from the top is greater than the integer on top, otherwise produces false.</p>
+<p><code>5 0 &gt;</code>  → <code>true</code></p>
+<p><code>-5 0 &gt;</code> → <code>false</code></p>
+<p><code>0 0 &gt;</code> → <code>false</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-10"><a class="header" href="#-10"><code>&lt;</code></a></h1>
+<p>Consumes two integers from the top of the stack and produces <code>true</code> if the integer second from the top is less than the integer on top, otherwise produces false.</p>
+<p><code>5 0 &lt;</code>  → <code>false</code></p>
+<p><code>-5 0 &lt;</code> → <code>true</code></p>
+<p><code>0 0 &lt;</code> → <code>false</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="apply"><a class="header" href="#apply"><code>apply</code></a></h1>
+<p>Consumes a lambda and applies it to the top of the stack.</p>
+<p><code>5 ( 2 * ) apply</code> → <code>10</code></p>
+<p><code>6 ( copy * ) apply</code> → <code>36</code></p>
+<p><code>100 100 ( hop hop = ) apply</code> → <code>100 100 true</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="under"><a class="header" href="#under"><code>under</code></a></h1>
+<p>Consumes a lambda and applies it to the stack under the top item of the stack.</p>
+<p><code>4 5 ( 2 * ) under</code> → <code>8 5</code></p>
+<p><code>5 6 ( copy * ) under</code> → <code>25 6</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="deep"><a class="header" href="#deep"><code>deep</code></a></h1>
+<p>Consumes an integer index and a lambda below it, and applies the lambda at that index in the stack. Indexes wrap around the stack, and negative indexes start at the bottom of the stack.</p>
+<p><code>1 2 3 4 5 ( copy * ) 2 deep</code> → <code>1 2 9 4 5</code></p>
+<p><code>true false false ( copy copy ) -1 deep</code> → <code>true true true false false</code></p>
+<p><code>1 2 3 4 5 ( drop drop ) 8 deep</code>  → <code>3 4 5</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="compose"><a class="header" href="#compose"><code>compose</code></a></h1>
+<p>Composes two lambdas on top of the stack into a single lambda.</p>
+<p><code>( 2 * ) ( 2 + ) compose</code>  → <code>( 2 * 2 + )</code></p>
+<p><code>( 2 % ) ( 1 = ) compose</code> → <code>( 2 % 1 = )</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-11"><a class="header" href="#-11"><code>?</code></a></h1>
+<p>Consumes two lambdas from the top of the stack, and a boolean below them. If the boolean is true, the bottom lambda is applied to the stack, and if it is false, the top lambda is applied to the stack.</p>
+<p><code>5 false ( 2 * ) ( 2 + ) ?</code> → <code>7</code></p>
+<p><code>5 true ( 2 * ) ( 2 + ) ?</code> → <code>10</code></p>
 
                     </main>
 
