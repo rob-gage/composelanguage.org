@@ -39,3 +39,11 @@
   * [`deep`](./functions/deep.md)
   * [`compose`](./functions/compose.md)
   * [`?` (Branch)](./functions/branch.md)
+  
+  * [`append`](./functions/append.md)
+  * [`index`](./functions/index.md)
+  * [`join`](./functions/join.md)
+  * [`length`](./functions/length.md)
+  * [`map`](./functions/map.md)
+  * [`filter`](./functions/filter.md)
+  * [`fold`](./functions/fold.md)
