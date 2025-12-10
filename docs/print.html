@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-cd1aac61.js";
+            window.path_to_searchindex_js = "searchindex-774ba1af.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ab760b22.js"></script>
+        <script src="toc-92524371.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -346,6 +346,44 @@
 <p>Consumes two lambdas from the top of the stack, and a boolean below them. If the boolean is true, the bottom lambda is applied to the stack, and if it is false, the top lambda is applied to the stack.</p>
 <p><code>5 false ( 2 * ) ( 2 + ) ?</code> → <code>7</code></p>
 <p><code>5 true ( 2 * ) ( 2 + ) ?</code> → <code>10</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="append"><a class="header" href="#append"><code>append</code></a></h1>
+<p>Consumes an item from the top of the stack and appends it to the list below it.</p>
+<p><code>[ 2 4 6 ] 8 append</code> → <code>[ 2 4 6 8 ]</code></p>
+<p><code>[] 1 append 2 append 3 append</code> → <code>[ 1 2 3 ]</code></p>
+<p><code>[] [] append</code> → <code>[ [ ] ]</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="index"><a class="header" href="#index"><code>index</code></a></h1>
+<p>Consumes a list and returns the item at a specified index. Indexes wrap around the list, and negative indexes start at the end of the list.</p>
+<p><code>[ 1 2 3 4 5 ] copy 2 index</code> → <code>[ 1 2 3 4 5 ] 3</code></p>
+<p><code>[ 1 2 3 4 5 ] 5 index</code> → <code>1</code></p>
+<p><code>[ 1 2 3 4 5 ] -1 index</code> → <code>5</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="join"><a class="header" href="#join"><code>join</code></a></h1>
+<p>Joins two lists on top of the stack.</p>
+<p><code>[ 1 2 3 ] [ 4 5 6 ] join</code> → <code>[ 1 2 3 4 5 6 ]</code></p>
+<p><code>[ true ] [ false ] join</code> → <code>[ true false ]</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="length"><a class="header" href="#length"><code>length</code></a></h1>
+<p>Consumes a list from the top of the stack and returns its length.</p>
+<p><code>[ 1 2 3 4 5 ] length</code> → <code>5</code></p>
+<p><code>[ 1 2 3 4 5 ] copy length</code> → <code>[ 1 2 3 4 5 ] 5</code></p>
+<p><code>[] length</code> → <code>0</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="map"><a class="header" href="#map"><code>map</code></a></h1>
+<p>Consumes a lambda, and a list below it, and produces the list with each item in it mapped using the lambda. The lambda must consume the original list item and produce a new one.</p>
+<p><code>[ 1 2 3 4 5 ] ( 2 * ) map</code> → <code>[ 2 4 6 8 10 ]</code></p>
+<p><code>[ true false true ] ( ! ) map</code> → <code>[ false true false ]</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="filter"><a class="header" href="#filter"><code>filter</code></a></h1>
+<p>Consumes a lambda, and a list below it, and produces a list containing only items from the original list for which the lambda produces <code>true</code>. The lambda must consume the original list item and produce a boolean.</p>
+<p><code>[ 1 2 3 4 5 6 7 8 9 10 ] ( 2 % 0 = ) filter</code> → <code>[ 2 4 6 8 10 ]</code></p>
+<p><code>[ true false true ] ( true = ) filter</code> → <code>[ true true ]</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="fold"><a class="header" href="#fold"><code>fold</code></a></h1>
+<p>Consumes a lambda, a list, and an accumulator value. Reduces the list from left to right by applying the lambda to the accumulator and each list item. The lambda must consume the accumulator and list item, and produce a new accumulator. The final accumulator value is produced on top of the stack.</p>
+<p><code>0 [ 1 2 3 4 ] ( + ) fold</code> → <code>10</code></p>
+<p><code>1 [ 1 2 3 4 ] ( * ) fold</code> → <code>24</code></p>
 
                     </main>
 
